@@ -152,7 +152,6 @@ body {
   height: 38px;
   background-color: #ffffff;
   border: 1px solid #e6e6e6;
-  border-right: none;
 }
 
 .header input[type=search]:placeholder-shown {
@@ -172,24 +171,194 @@ body {
   color: #a4a4a4;
   position: absolute;
   border: 1px solid #e6e6e6;
+  border-left: none;
   border-radius: 0 3px 3px 0;
   background-color: #ffffff;
 }
 
-.header .header-right {
+.header button[type=submit]:hover {
+  border: none;
+  padding-right: 7px;
+  cursor: pointer;
+}
+
+.header button[type=submit]:focus {
+  outline: none;
+}
+
+.header-right {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
-.header .cart-link {
+.cart-hover {
+  width: 66px;
+  height: 38px;
+}
+
+.cart-link {
   display: block;
-  margin: 0 26px -10px 0;
+  padding-top: 6px;
 }
 
-.header button[type=myAcc] {
+.cart-hover-content {
+  width: 262px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  position: absolute;
+  top: 55px;
+  left: -20px;
+  border: 1px solid #e8e8e8;
+  opacity: 0;
+  visibility: hidden;
+  transition-property: opacity, visibility;
+  transition-duration: 0.2s;
+  transition-delay: 0.15s;
+}
+
+.cart-hover-content:before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: -6px;
+  left: 13%;
+  transform: rotate(45deg);
+  background-color: WHITE;
+  border-top: 1px solid #e8e8e8;
+  border-left: 1px solid #e8e8e8;
+}
+
+.cart-hover-content-box {
+  padding: 0 18px 19px 18px;
+}
+
+.cart-hover-content-table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+.cart-hover:hover .cart-hover-content {
+  visibility: visible;
+  opacity: 1;
+}
+
+.cart-hover-content-table-product-image-box-1 {
+  position: relative;
+  margin: 0 -14px 0 3px;
+}
+
+.cart-hover-content-table-product-image-box-2 {
+  position: absolute;
+  top: -2px;
+  left: -9px;
+  display: none;
+  transition: 0.3s ease-in-out;
+}
+
+.cart-hover-content-table-product-image-box-1:hover .cart-hover-content-table-product-image-box-2 {
+  display: block;
+}
+
+.cart-hover-content-table-product-name {
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222222;
+  margin-top: -10px;
+}
+
+.cart-hover-content-table-product-rating {
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #e4af48;
+  margin-top: 10px;
+}
+
+.cart-hover-content-table-product-price {
+  margin-top: 5px;
+}
+
+.cart-hover-quantity,
+.cart-hover-price {
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #f16d7f;
+}
+
+.cart-hover-mul {
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #f16d7f;
+}
+
+.cart-hover-total-sum {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222222;
+}
+
+.checkout-btn-link {
+  text-decoration: none;
+  height: 50px;
+  border: 1px solid #f16d7f;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #f16d7f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease-in-out;
+  margin-top: 16px;
+}
+
+.checkout-btn-link:hover {
+  transform: scale3d(1.1, 1.1, 1.1);
+}
+
+.go-to-cart-btn-link {
+  text-decoration: none;
+  height: 50px;
+  background-color: #ffffff;
+  border: 1px solid #eaeaea;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #4a4a4a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease-in-out;
+  margin-top: 11px;
+}
+
+.go-to-cart-btn-link:hover {
+  transform: scale3d(1.15, 1.15, 1.15);
+  border: none;
+  color: #ef5b70;
+}
+
+.myAcc-btn {
   width: 130px;
   height: 38px;
   background-color: #ef5b70;
+  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -198,11 +367,14 @@ body {
   font-weight: 400;
   letter-spacing: 0.025em;
   color: #ffffff;
+  transition: color 0.4s ease-in-out;
 }
 
-.header button[type=myAcc]:hover {
+.myAcc-btn:hover {
   background-color: #ffffff;
   color: #ef5b70;
+  box-shadow: 0 0 5px 2px #ef5b70;
+  transition: 0.4s ease-in-out;
 }
 
 .header .menu {
@@ -421,6 +593,7 @@ body {
   position: absolute;
   left: -2px;
   opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .promo-product-img-hover-left-bottom {
@@ -428,6 +601,7 @@ body {
   left: 149px;
   top: -39px;
   opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .promo-product-img-hover-right-top {
@@ -435,6 +609,7 @@ body {
   top: -98px;
   left: -4px;
   opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .promo-product-img-hover-right-bottom {
@@ -442,6 +617,7 @@ body {
   top: -11px;
   left: 0;
   opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .promo-product:hover .promo-product-img-hover-left-top,
@@ -449,7 +625,6 @@ body {
 .promo-product:hover .promo-product-img-hover-right-top,
 .promo-product:hover .promo-product-img-hover-right-bottom {
   opacity: 1;
-  transition: opacity 0.3s ease-in-out;
   z-index: 10;
 }
 
@@ -1902,7 +2077,7 @@ thead {
 }
 
 .sort-box-select {
-  height: 30px;
+  height: 33px;
   background-color: #ffffff;
   border: 1px solid #ebebeb;
   width: fit-content;
