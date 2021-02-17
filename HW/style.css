@@ -1444,7 +1444,23 @@ thead {
 }
 
 .shop-cart-table-product-image {
-  width: 120px;
+  width: 115px;
+}
+
+.shop-cart-table-product-image-box-1 {
+  position: relative;
+  width: 115px;
+}
+
+.shop-cart-table-product-image-box-1:hover .shop-cart-table-product-image-box-2 {
+  visibility: visible;
+}
+
+.shop-cart-table-product-image-box-2 {
+  position: absolute;
+  top: -5px;
+  left: -1px;
+  visibility: hidden;
 }
 
 .shop-cart-table-product {
